@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
-import { fetchCollection } from '../api.js'
+import { fetch } from '../api.js'
 
 function Workouts() {
   const [workouts, setWorkouts] = useState([])
   const [error, setError] = useState('')
 
   useEffect(() => {
-    fetchCollection('/api/workouts/')
+    fetch('/api/workouts/')
       .then(setWorkouts)
       .catch((requestError) => setError(requestError.message))
   }, [])

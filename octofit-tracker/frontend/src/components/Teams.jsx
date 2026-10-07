@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
-import { displayName, fetchCollection } from '../api.js'
+import { displayName, fetch } from '../api.js'
 
 function Teams() {
   const [teams, setTeams] = useState([])
   const [error, setError] = useState('')
 
   useEffect(() => {
-    fetchCollection('/api/teams/')
+    fetch('/api/teams/')
       .then(setTeams)
       .catch((requestError) => setError(requestError.message))
   }, [])
